@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mars News and Data</title>
+  
+  <!-- bootstrap css -->
+  <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+
+  <!-- bootswatch theme: "Slate" -->
+  <link rel="stylesheet" href="./static/css/bootswatch_theme_slate.css">
+
+  <!-- link to extra css -->
+  <link rel="stylesheet" href="./static/css/extra_css.css">
+
+</head>
+
+<body>
+
+  <!-- container for content -->
+  <div class="container-fluid">
+    
+    <!-- site header with button to scrape data -->
+    <div class="jumbotron text-center">
+      <h1 class="font-weight-bold">Mission to Mars</h1>
+      <br>
+      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Get Latest Data</a></p>
+    </div>
+    
+
+    <!-- Row for latest news -->
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <h3 class="header"><strong>Latest News</strong></h3>
+            <h4>{{ data.news_title }}</h4>
+            <p>{{ data.news_p }}</p>
+        </div>
+    </div>
+
+
+    <!-- Row for featured image, weather tweet, and mars facts table -->
+    <div class="row justify-content-center">
+      
+      <!-- featured image -->
+      <div class="col-md-6">
+          <h3 class="font-weight-bold">Featured Mars Image</h3>
+          <img src="{{ data.featured_image_url }}" alt="Mars Image" class="mars-img">
+      </div>
+      
+      <!-- Column for weather and table -->
+      <div class="col-md-4">
+        
+        <!-- weather tweet (as a card) -->
+        <div class="row">
+          <div class="card" style="width: 30rem;">
+            <div class="card-body">
+              <h3 class="card-title font-weight-bold">Current Weather on Mars</h3>
+              <h6 class="card-subtitle text-muted">Latest weather tweet:</h6>
+              <br>
+              <p class="card-text">{{ data.mars_weather }}</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mars facts table Heading-->
+        <h3 class="row font-weight-bold">Mars Data</h3>
+
+        <!-- Row for Mars Facts Table -->
+        <div class="row">{{ data.html_table|safe }}</div>
+
+      </div>  <!-- /Column for weather and table -->
+      
+    </div> <!-- /Row for featured image, weather tweet, and mars facts table -->
+
+
+    <!-- ------------------------------------------------------------------------------------------- -->
+    <!-- ------------------------------------------------------------------------------------------- -->
+
+    <!-- Rows for Hemisphere Images Header -->
+    <div class="row justify-content-center">
+      <h3 class="col-lg-10 font-weight-bold text-center" style="margin: 30px;">Mars Hemispheres</h3>
+    </div>
+
+    
+    <!-- Row for 2 hemisphere cards with image and title -->
+
+    <div class="row justify-content-center">
+      
+      <div class="col-lg-5">
+        <div class="card hemi-card">
+          <img src="{{ data.hemisphere_image_urls[0].img_url }}" class="card-img-top" alt="{{ data.hemisphere_image_urls[0].title }}">
+          <div class="card-body">
+            <h5 class="card-title">{{ data.hemisphere_image_urls[0].title }}</h5>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-5">
+        <div class="card hemi-card">
+          <img src="{{ data.hemisphere_image_urls[1].img_url }}" class="card-img-top" alt="{{ data.hemisphere_image_urls[1].title }}">
+          <div class="card-body">
+            <h5 class="card-title">{{ data.hemisphere_image_urls[1].title }}</h5>
+          </div>
+        </div>
+      </div>
+
+    </div>  <!-- /Row -->
+
+    <!-- Another row for 2 hemisphere cards with image and title -->
+
+    <div class="row justify-content-center">
+      
+        <div class="col-lg-5">
+          <div class="card hemi-card">
+            <img src="{{ data.hemisphere_image_urls[2].img_url }}" class="card-img-top" alt="{{ data.hemisphere_image_urls[2].title }}">
+            <div class="card-body">
+              <h5 class="card-title">{{ data.hemisphere_image_urls[2].title }}</h5>
+            </div>
+          </div>
+        </div>
+  
+        <div class="col-lg-5">
+          <div class="card hemi-card">
+            <img src="{{ data.hemisphere_image_urls[3].img_url }}" class="card-img-top" alt="{{ data.hemisphere_image_urls[3].title }}">
+            <div class="card-body">
+              <h5 class="card-title">{{ data.hemisphere_image_urls[3].title }}</h5>
+            </div>
+          </div>
+        </div>
+  
+      </div> <!-- /Row -->
+
+  </div> <!-- /container-fluid -->
+
+</body>
+
+</html>

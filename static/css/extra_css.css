@@ -1,0 +1,23 @@
+/******    CSS for Mars images     ******/
+
+
+/* make images shrink/grow with screen size */
+.mars-img {
+    max-width: 800px;
+    width: 100%;
+    height: auto;
+}
+
+.hemi-card {
+    max-width: 800px;
+    width: 100%;
+    height: auto;
+    margin: 20px;
+}
+
+h3 {
+    border-bottom: 5px solid rgb(214, 126, 126);
+    background: #B58900;
+    color: rgba(230, 230, 230, 0.767);
+    border-radius: 3px;
+}
